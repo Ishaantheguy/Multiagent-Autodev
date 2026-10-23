@@ -1,0 +1,99 @@
+analyse_requirements:
+  description: >
+    Analyse the following software request:
+
+    {user_request}
+
+    Produce a concise specification containing:
+    1. The application's purpose.
+    2. Functional requirements.
+    3. Input and output expectations.
+    4. Important edge cases.
+    5. Verifiable acceptance criteria.
+    6. Assumptions and constraints.
+
+    Keep the result structured and concise.
+  expected_output: >
+    A structured requirements specification with numbered
+    functional requirements, edge cases, and measurable
+    acceptance criteria.
+  agent: product_analyst
+
+design_architecture:
+  description: >
+    Design a practical implementation for the following request:
+
+    {user_request}
+
+    Use the requirements specification provided by the preceding
+    task through task context. Do not assume requirements that
+    contradict that specification.
+
+    Define:
+    1. Technology choices.
+    2. Project directory structure.
+    3. Main components and their responsibilities.
+    4. Interfaces between components.
+    5. Dependencies.
+    6. Implementation steps.
+
+    Prefer the simplest maintainable design that satisfies the
+    requirements. Keep the architecture concise.
+  expected_output: >
+    An implementation plan specifying the technology stack,
+    project structure, component responsibilities, dependencies,
+    and implementation steps.
+  agent: software_architect
+
+implement_software:
+  description: >
+    Implement the software described in the user's request:
+
+    {user_request}
+
+    Use the requirements specification and architecture provided
+    by the preceding tasks through task context.
+
+    Create actual source files using the write_workspace_file tool.
+    All generated files must be inside the designated workspace.
+
+    Requirements:
+    1. Implement the specified functionality.
+    2. Follow the proposed architecture.
+    3. Include appropriate input validation and error handling.
+    4. Use clear, maintainable code.
+    5. Include tests and dependency declarations when appropriate.
+    6. Provide instructions for running the application.
+
+    Do not merely describe the code. Create the files.
+    Do not claim tests have passed unless they were executed.
+  expected_output: >
+    An implementation summary listing files created, their purpose,
+    dependencies, execution instructions, and any known limitations.
+  agent: software_developer
+
+review_software:
+  description: >
+    Review the implementation produced for this request:
+
+    {user_request}
+
+    Use the preceding task context to understand the requirements,
+    architecture, and implementation.
+
+    Review the implementation for:
+    1. Functional correctness.
+    2. Compliance with requirements.
+    3. Security vulnerabilities.
+    4. Error handling and edge cases.
+    5. Maintainability and unnecessary complexity.
+
+    Report actionable findings with severity and affected files.
+    Do not claim to have inspected files you could not access.
+    Do not claim to have executed tests unless actual test results
+    are available. If execution evidence is unavailable, state this.
+  expected_output: >
+    A concise review containing actionable findings, severity,
+    affected files, recommended corrections, and any limitations
+    caused by unavailable execution evidence.
+  agent: code_reviewer
