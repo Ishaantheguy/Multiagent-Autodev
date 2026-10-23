@@ -1,0 +1,32 @@
+Build a simple Python Task Manager REST API using FastAPI and SQLite.
+
+Requirements:
+1. Implement CRUD endpoints to create, list, retrieve, update, and delete tasks.
+2. Each task must have an ID, title, description, completion status, and creation timestamp.
+3. Validate incoming requests and return appropriate HTTP status codes.
+4. Use SQLite for persistent storage.
+5. Include unit tests using pytest for the API endpoints and input validation.
+6. Provide a requirements.txt file and a README.md with installation and execution instructions.
+7. Keep the implementation simple and avoid unnecessary dependencies.
+
+**Directory structure and imports:**
+- Organize the project into a clear, consistent Python package structure.
+- Include all necessary `__init__.py` files.
+- Ensure all module imports use the correct package names and paths.
+- Prefer absolute imports from the application's top-level package for internal modules.
+- Avoid circular imports and imports that depend on the current working directory.
+- Ensure the application can be launched from the generated project's root directory using the documented command.
+- Ensure pytest can correctly discover the tests and import the application modules.
+- Configure the package or Python path appropriately where necessary.
+- Keep all application source files, tests, and configuration files inside the generated project directory.
+
+**Acceptance criteria:**
+- The API starts successfully using the documented command.
+- Tasks can be created, retrieved, updated, listed, and deleted.
+- Invalid requests return appropriate error responses.
+- Data persists in SQLite.
+- Tests can import the application modules and execute successfully.
+- Dependencies and setup instructions are complete.
+- The final report lists the generated files, execution commands, and any known limitations.
+
+Do not merely describe the implementation. Create the actual source files. Verify imports and execute the tests if execution tools are available. Never claim that tests passed unless they were actually executed.

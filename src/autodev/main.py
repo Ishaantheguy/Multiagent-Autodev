@@ -5,6 +5,7 @@ import warnings
 from datetime import datetime
 
 from autodev.crew import Autodev
+from pathlib import Path
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -18,6 +19,10 @@ def run():
         request = input(
             "Describe the software you want AutoDev to build:\n> "
         ).strip()
+        
+        if request.startswith("@"):
+            prompt_file = Path(request[1:]).expanduser()
+            request = prompt_file.read_text(encoding="utf-8").strip()
 
     if not request:
         raise ValueError("A software development request is required.")
