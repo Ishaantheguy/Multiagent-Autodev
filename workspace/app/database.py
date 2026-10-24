@@ -1,9 +1,10 @@
 import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-DB_FILE = "tasks.db"
-DATABASE_URL = f"sqlite:///{DB_FILE}"
+DB_FILE = "task_manager.db"
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DB_FILE}")
 
 engine = create_engine(
     DATABASE_URL, connect_args={"check_same_thread": False}

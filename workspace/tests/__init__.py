@@ -1,1 +1,1 @@
-# Package marker for tests
+# Test package initialization

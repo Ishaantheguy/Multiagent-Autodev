@@ -10,8 +10,9 @@ def get_tasks(db: Session, skip: int = 0, limit: int = 100):
 
 def create_task(db: Session, task: TaskCreate):
     db_task = TaskModel(
-        title=task.title.strip(),
-        description=task.description.strip() if task.description else None
+        title=task.title,
+        description=task.description,
+        completed=task.completed if task.completed is not None else False
     )
     db.add(db_task)
     db.commit()
@@ -23,12 +24,8 @@ def update_task(db: Session, task_id: int, task_update: TaskUpdate):
     if not db_task:
         return None
     
-    update_data = task_update.model_dump(exclude_unset=True)
+    update_data = task_update.dict(exclude_unset=True)
     for key, value in update_data.items():
-        if key == "title" and value is not None:
-            value = value.strip()
-        if key == "description" and value is not None:
-            value = value.strip()
         setattr(db_task, key, value)
         
     db.commit()

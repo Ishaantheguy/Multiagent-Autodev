@@ -1,1 +1,1 @@
-# Package marker for app
+# Package initialization
